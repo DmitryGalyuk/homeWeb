@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Pi-hole",
+        "href": "http://{local}:8080/admin",
+        "image": "logos/pihole.png"
+    },
+    {
+        "title": "Plex",
+        "href": "http://{local}:32400/web/",
+        "image": "logos/plex.svg"
+    },
+    {
+        "title": "Radarr",
+        "href": "http://{local}:7878",
+        "image": "logos/radarr.png"
+    },
+    {
+        "title": "Qbittorrent",
+        "href": "http://{local}:8081",
+        "image": "logos/qb.jpg"
+    },
+    {
+        "title": "Jackett",
+        "href": "http://{local}:9117",
+        "image": "logos/jackett.png"
+    },
+    {
+        "title": "Optic modem",
+        "href": "http://192.168.100.1",
+        "image": "logos/huawei.png"
+    }
+
+]

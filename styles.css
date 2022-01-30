@@ -1,0 +1,24 @@
+#content {
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    max-height: 50px;
+    max-width: 100px;
+}
+
+/* .imgA {
+} */
+
+.title {
+    font-size: x-large;
+    color: black;
+}
+
+article {
+    margin: 40px;
+}
