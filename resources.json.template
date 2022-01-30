@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Application on the same web server",
+        "href": "http://{local}:8080/",
+        "image": "logos/pihole.png"
+    },
+    {
+        "title": "Application on other network device",
+        "href": "http://192.168.0.1/",
+        "image": "logos/plex.svg"
+    }
+]
