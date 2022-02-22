@@ -1,22 +1,49 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Home network</title>
-        <script src="scripts.js"></script>
+        <script src="js/links.js"></script>
+        <script src="js/cpuTemp.js"></script>
+        <script src="js/freeSpace.js"></script>
+        <script src="js/driveTemp.js"></script>
+        <script src="js/svglib.js"></script>
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    </head>
+    </head> 
 
-    <body onload="main();">
+    <body>
 
-        <template id="template">
+        <template id="templateLink">
             <article class="button">
                 <a class="imgA"><img class="img"/></a><br>
                 <a class="title"></a>
             </article>
         </template>
+        <template id="templateCpuTemp" title="CPU Temperature">
+            <svg src="icons/chip.svg" id="iconCpuTemp" class="icon"></svg>
+            <span id="labelCpuTemp"></span>&#8451;
+        </template>
+        <template id="templateDriveTemp">
+            <span title="Drive Name" id="containerDriveTemp">
+                <svg src="icons/hdd.svg" id="iconDriveTemp" class="icon"></svg>
+                <span id="labelDriveTemp"></span>℃
+            </span>
+        </template>
+        <template id="templateFreeSpace">
+            <span id="progressBar" class="progressBar">
+                <span id="progressValue" class="progressValue"></span>
+            </span>
+            <span id="labelFreeSpace"></span> GB free of
+            <span id="labelTotalSpace"></span> GB
+        </template>
 
-        <section id="content"></section>
+        <section id="sectionSensors">
+            <article id="sectionFreeSpace"></article>
+            <article id="sectionDriveTemp"></article>
+            <article id="sectionCpuTemp"></article>
+        </section>
+        <section id="contentLink"></section>
 
     </body>
 </html>

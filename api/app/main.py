@@ -16,7 +16,7 @@ def driveTempHandler():
 
 @app.route("/driveTempRanges")
 def driveTempRangesHandler():
-    return jsonify(app.Config.driveTempRanges())
+    return jsonify(driveTempRanges())
 
 @app.route("/cpuTemp")
 def cpuTempHandler():
@@ -24,7 +24,7 @@ def cpuTempHandler():
 
 @app.route("/cpuTempRanges")
 def cpuTempRangesHandler():
-    return jsonify(app.Config.cpuTempRanges())
+    return jsonify(cpuTempRanges())
 
 @app.route("/freeSpace")
 def freeSpaceHandler():
@@ -32,7 +32,7 @@ def freeSpaceHandler():
 
 @app.route("/freeSpaceRanges")
 def freeSpaceRangesHandler():
-    return jsonify(app.Config.freeSpaceRanges())
+    return jsonify(freeSpaceRanges())
 
 # if __name__ == "__main__":
 #     # Only for debugging while developing

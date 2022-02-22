@@ -1,15 +1,14 @@
-async function main(){
-    const resources = await fetch("resources.json");
-    const links = await resources.json();
+document.addEventListener("DOMContentLoaded", buildLinks);
 
-    const template = document.querySelector("#template");
-    const container = document.querySelector("#content");
 
-    
-    links.forEach(element => {
-        container.appendChild(createButton(template, element))
-    });
-
+function buildLinks() {
+    const template = document.getElementById("templateLink");
+    const container = document.getElementById("contentLink");
+    fetch("resources.json")
+        .then(response => response.json())
+        .then(links => links.forEach(element => {
+            container.appendChild(createButton(template, element));
+        }));
 }
 
 function createButton(template, link) {
@@ -28,3 +27,4 @@ function processMacros(input) {
     localHost = document.location.hostname;
     return input.replaceAll("{local}", localHost);
 }
+

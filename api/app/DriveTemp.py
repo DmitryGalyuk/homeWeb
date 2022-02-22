@@ -16,3 +16,4 @@ def driveTemp():
         } for x in driveMons ]
     return temps
 
+print(driveTemp())

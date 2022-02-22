@@ -1,9 +1,8 @@
-#content {
-    min-height: 50vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+:root {
+    --color-crit: red;
+    --color-warn: gold;
+    --color-norm: lime;
+    --color-low: dodgerblue;
 }
 
 .img {
@@ -11,14 +10,99 @@
     max-width: 100px;
 }
 
-/* .imgA {
-} */
-
 .title {
     font-size: x-large;
     color: black;
 }
 
 article {
+    display: inline-block;
+}
+
+
+.button {
     margin: 40px;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+}
+
+.crit {
+    fill: var(--color-crit);
+    stroke: var(--color-crit);
+}
+
+.warn {
+    fill: var(--color-warn);
+    stroke: var(--color-warn);
+}
+
+.norm {
+    fill: var(--color-norm);
+    stroke: var(--color-norm);
+}
+
+.low {
+    fill: var(--color-low);
+    stroke: var(--color-low);
+}
+
+.progressBar {
+    display: inline-block;
+    border: 1px solid #888888;
+    border-radius: 100px;
+    height: 1em;
+    box-sizing: border-box;
+}
+
+.progressValue {
+    display: block;
+    border-radius: 100px;
+    height: 100%;
+}
+
+
+@media (prefers-color-scheme: dark) {
+
+    html,
+    html * {
+        color: #eeeeee !important;
+        background-color: #292929 !important;
+    }
+
+    * {
+        border-color: #555555
+    }
+
+    :link,
+    :link * {
+        color: #8db2e5 !important
+    }
+
+    input,
+    textarea {
+        background-color: #333333 !important
+    }
+
+    a {
+        background-color: rgba(255, 255, 255, 0.01) !important
+    }
+
+    :visited,
+    :visited * {
+        color: rgb(211, 138, 138) !important
+    }
+
+    html,
+    html::before,
+    body,
+    body::before,
+    input,
+    select,
+    button {
+        background-image: none !important
+    }
+
 }
