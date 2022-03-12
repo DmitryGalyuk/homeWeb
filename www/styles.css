@@ -63,6 +63,10 @@ article {
     height: 100%;
 }
 
+.freeSpaceContainer {
+    display: inline-block;
+}
+
 
 @media (prefers-color-scheme: dark) {
 
