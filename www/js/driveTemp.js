@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", driveTempCycle);
 options = {method: 'GET', mode: 'cors', headers: {'Content-Type': 'application/json',}};
 
 async function driveTempCycle() {
-    fetch("http://linbox.local:801/driveTemp", options)
+    fetch(API_HOST+"/driveTemp", options)
         .then(response => response.json())
         .then(result => displayDriveTemp(result))
         .then(setTimeout(driveTempCycle, 2000));
@@ -31,7 +31,7 @@ async function displayDriveTemp(temps) {
 
 async function driveTempRanges() {
     if(driveTempRanges.prototype) return driveTempRanges.prototype;
-    driveTempRanges.prototype = fetch("http://linbox.local:801/driveTempRanges", options)
+    driveTempRanges.prototype = fetch(API_HOST+"/driveTempRanges", options)
         .then(response => response.json());
     return driveTempRanges.prototype;
 }

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", cpuTempCycle);
 options = {method: 'GET', mode: 'cors', headers: {'Content-Type': 'application/json',}};
 
 async function cpuTempCycle() {
-    fetch("http://linbox.local:801/cpuTemp", options)
+    fetch(API_HOST+"/cpuTemp", options)
         .then(response => response.text())
         .then(result => displayCpuTemp(result))
         .then(setTimeout(cpuTempCycle, 2000));
@@ -29,7 +29,7 @@ async function displayCpuTemp(temp) {
 
 async function cpuTempRanges() {
     if(cpuTempRanges.prototype) return cpuTempRanges.prototype;
-    cpuTempRanges.prototype = fetch("http://linbox.local:801/cpuTempRanges", options)
+    cpuTempRanges.prototype = fetch(API_HOST+"/cpuTempRanges", options)
         .then(response => response.json());
     return cpuTempRanges.prototype;
 }

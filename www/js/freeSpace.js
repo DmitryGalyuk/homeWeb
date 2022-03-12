@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", freeSpaceCycle);
 options = {method: 'GET', mode: 'cors', headers: {'Content-Type': 'application/json',}};
 
 async function freeSpaceCycle() {
-    fetch("http://linbox.local:801/freeSpace", options)
+    fetch(API_HOST+"/freeSpace", options)
         .then(response => response.json())
         .then(result => displayFreeSpace(result))
         .then(setTimeout(freeSpaceCycle, 2000));
@@ -41,7 +41,7 @@ async function displayFreeSpace(drives) {
 
 async function freeSpaceRanges() {
     if(freeSpaceRanges.range) return freeSpaceRanges.range;
-    freeSpaceRanges.range = fetch("http://linbox.local:801/freeSpaceRanges", options)
+    freeSpaceRanges.range = fetch(API_HOST+"/freeSpaceRanges", options)
         .then(response => response.json());
     return freeSpaceRanges.range;
 }
