@@ -25,6 +25,9 @@ function createButton(template, link) {
 
 function processMacros(input) {
     localHost = document.location.hostname;
-    return input.replaceAll("{local}", localHost);
+    routerIp = fetch("http://" + localHost + "/api/router-ip").then(response => response.text());
+    return input
+        .replaceAll("{local}", localHost)
+        .replaceAll("{router}", routerIp)
 }
 
