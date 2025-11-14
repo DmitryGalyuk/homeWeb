@@ -6,26 +6,26 @@ function buildLinks() {
     const container = document.getElementById("contentLink");
     fetch("resources.json")
         .then(response => response.json())
-        .then(links => links.forEach(element => {
-            container.appendChild(createButton(template, element));
+        .then(links => links.forEach(async element => {
+            container.appendChild(await createButton(template, element));
         }));
 }
 
-function createButton(template, link) {
+async function createButton(template, link) {
     var clone = template.content.cloneNode(true);
     clone.id = "";
-    clone.querySelector(".imgA").href = processMacros(link.href);
+    clone.querySelector(".imgA").href = await processMacros(link.href);
     clone.querySelector(".img").src = link.image;
     const title = clone.querySelector(".title");
-    title.href = processMacros(link.href);
+    title.href = await processMacros(link.href);
     title.appendChild(document.createTextNode(link.title));
 
     return clone;
 }
 
-function processMacros(input) {
+async function processMacros(input) {
     localHost = document.location.hostname;
-    routerIp = fetch("http://" + localHost + "/api/router-ip").then(response => response.text());
+    routerIp = await (await fetch(API_HOST + "/router-ip")).text();
     return input
         .replaceAll("{local}", localHost)
         .replaceAll("{router}", routerIp)

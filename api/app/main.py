@@ -1,9 +1,9 @@
+import os
 from flask import Flask, jsonify, url_for, make_response
 from app.DriveTemp import driveTemp
 from app.CpuTemp import cpuTemp
 from app.FreeSpace import freeSpace
 from app.Config import cpuTempRanges, driveTempRanges, freeSpaceRanges
-from app.NetworkInfo import get_default_gateway_ip
 
 app = Flask(__name__)
 
@@ -35,14 +35,16 @@ def freeSpaceHandler():
 def freeSpaceRangesHandler():
     return jsonify(freeSpaceRanges())
 
-@app.route('/api/router-ip', methods=['GET'])
+@app.route('/router-ip', methods=['GET'])
 def router_ip():
     try:
-        ip =get_default_gateway_ip()
+        ip = os.environ.get('ROUTER_IP')
+    
         response = make_response(ip, 200)
         response.mimetype = 'text/plain'
         return response
-    except:
+    except Exception as e:
+        print(f"Error: {e}")
         return make_response("Error: Gateway IP not found", 500)
 
 # if __name__ == "__main__":
